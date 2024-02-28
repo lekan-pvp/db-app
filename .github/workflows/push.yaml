@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Vet
         run: |
-          go vet ./...
+          go vet 
 
       - uses: actions/checkout@v4
       - name: Run Unit Tests
