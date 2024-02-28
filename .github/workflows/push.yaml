@@ -1,0 +1,18 @@
+name: db-app-pipeline
+on: 
+  push:
+    branches: ["main"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: golang:1.22
+    steps:
+      - name: Vet
+        run: |
+          go vet ./...
+
+      - uses: actions/checkout@v4
+      - name: Run Unit Tests
+        run: GOOS=linux GOARCH=amd64 go test ./...
+
+
